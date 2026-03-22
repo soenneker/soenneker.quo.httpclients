@@ -8,26 +8,26 @@ namespace Soenneker.Quo.HttpClients.Registrars;
 /// <summary>
 /// A .NET thread-safe singleton HttpClient for GitHub
 /// </summary>
-public static class OpenApiHttpClientRegistrar
+public static class QuoOpenApiHttpClientRegistrar
 {
     /// <summary>
-    /// Adds <see cref="OpenApiHttpClient"/> as a singleton service. <para/>
+    /// Adds <see cref="QuoOpenApiHttpClient"/> as a singleton service. <para/>
     /// </summary>
-    public static IServiceCollection AddOpenApiHttpClientAsSingleton(this IServiceCollection services)
+    public static IServiceCollection AddQuoOpenApiHttpClientAsSingleton(this IServiceCollection services)
     {
         services.AddHttpClientCacheAsSingleton()
-                .TryAddSingleton<IOpenApiHttpClient, OpenApiHttpClient>();
+                .TryAddSingleton<IQuoOpenApiHttpClient, QuoOpenApiHttpClient>();
 
         return services;
     }
 
     /// <summary>
-    /// Adds <see cref="OpenApiHttpClient"/> as a scoped service. <para/>
+    /// Adds <see cref="QuoOpenApiHttpClient"/> as a scoped service. <para/>
     /// </summary>
-    public static IServiceCollection AddOpenApiHttpClientAsScoped(this IServiceCollection services)
+    public static IServiceCollection AddQuoOpenApiHttpClientAsScoped(this IServiceCollection services)
     {
         services.AddHttpClientCacheAsSingleton()
-                .TryAddScoped<IOpenApiHttpClient, OpenApiHttpClient>();
+                .TryAddScoped<IQuoOpenApiHttpClient, QuoOpenApiHttpClient>();
 
         return services;
     }

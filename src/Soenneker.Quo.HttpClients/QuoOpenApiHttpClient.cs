@@ -11,15 +11,15 @@ using Soenneker.Utils.HttpClientCache.Abstract;
 
 namespace Soenneker.Quo.HttpClients;
 
-///<inheritdoc cref="IOpenApiHttpClient"/>
-public sealed class OpenApiHttpClient : IOpenApiHttpClient
+///<inheritdoc cref="IQuoOpenApiHttpClient"/>
+public sealed class QuoOpenApiHttpClient : IQuoOpenApiHttpClient
 {
     private readonly IHttpClientCache _httpClientCache;
     private readonly IConfiguration _config;
 
     private const string _prodBaseUrl = "https://api.openphone.com/v1/";
 
-    public OpenApiHttpClient(IHttpClientCache httpClientCache, IConfiguration config)
+    public QuoOpenApiHttpClient(IHttpClientCache httpClientCache, IConfiguration config)
     {
         _httpClientCache = httpClientCache;
         _config = config;
@@ -27,7 +27,7 @@ public sealed class OpenApiHttpClient : IOpenApiHttpClient
 
     public ValueTask<HttpClient> Get(CancellationToken cancellationToken = default)
     {
-        return _httpClientCache.Get(nameof(OpenApiHttpClient), (config: _config, prodBaseUrl: _prodBaseUrl), static state =>
+        return _httpClientCache.Get(nameof(QuoOpenApiHttpClient), (config: _config, prodBaseUrl: _prodBaseUrl), static state =>
         {
             var apiKey = state.config.GetValueStrict<string>("Quo:ApiKey");
 
@@ -44,11 +44,11 @@ public sealed class OpenApiHttpClient : IOpenApiHttpClient
 
     public void Dispose()
     {
-        _httpClientCache.RemoveSync(nameof(OpenApiHttpClient));
+        _httpClientCache.RemoveSync(nameof(QuoOpenApiHttpClient));
     }
 
     public ValueTask DisposeAsync()
     {
-        return _httpClientCache.Remove(nameof(OpenApiHttpClient));
+        return _httpClientCache.Remove(nameof(QuoOpenApiHttpClient));
     }
 }

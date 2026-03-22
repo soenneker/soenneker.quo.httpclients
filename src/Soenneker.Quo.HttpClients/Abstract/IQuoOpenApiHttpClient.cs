@@ -8,7 +8,7 @@ namespace Soenneker.Quo.HttpClients.Abstract;
 /// <summary>
 /// A .NET thread-safe singleton HttpClient for 
 /// </summary>
-public interface IOpenApiHttpClient: IDisposable, IAsyncDisposable
+public interface IQuoOpenApiHttpClient: IDisposable, IAsyncDisposable
 {
     ValueTask<HttpClient> Get(CancellationToken cancellationToken = default);
 }
