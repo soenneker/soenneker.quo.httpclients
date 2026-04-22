@@ -1,20 +1,19 @@
 using Soenneker.Quo.HttpClients.Abstract;
-using Soenneker.Tests.FixturedUnit;
-using Xunit;
+using Soenneker.Tests.HostedUnit;
 
 namespace Soenneker.Quo.HttpClients.Tests;
 
-[Collection("Collection")]
-public sealed class OpenApiHttpClientTests : FixturedUnitTest
+[ClassDataSource<Host>(Shared = SharedType.PerTestSession)]
+public sealed class OpenApiHttpClientTests : HostedUnitTest
 {
     private readonly IQuoOpenApiHttpClient _httpclient;
 
-    public OpenApiHttpClientTests(Fixture fixture, ITestOutputHelper output) : base(fixture, output)
+    public OpenApiHttpClientTests(Host host) : base(host)
     {
         _httpclient = Resolve<IQuoOpenApiHttpClient>(true);
     }
 
-    [Fact]
+    [Test]
     public void Default()
     {
 
