@@ -6,7 +6,7 @@ using Soenneker.Utils.HttpClientCache.Registrar;
 namespace Soenneker.Quo.HttpClients.Registrars;
 
 /// <summary>
-/// A .NET thread-safe singleton HttpClient for GitHub
+/// Registers the Quo API HTTP client provider.
 /// </summary>
 public static class QuoOpenApiHttpClientRegistrar
 {
