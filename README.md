@@ -23,7 +23,7 @@ dotnet add package Soenneker.Quo.HttpClients
 }
 ```
 
-The default base URL is `https://api.openphone.com/v1/`; Quo continues to serve its API from the OpenPhone domain. Override it with `Quo:ClientBaseUrl` for a compatible proxy.
+The default base URL is `https://api.openphone.com/`; Quo continues to serve its API from the OpenPhone domain. Override it with `Quo:ClientBaseUrl` for a compatible proxy.
 
 ## Usage
 
@@ -38,7 +38,7 @@ IQuoOpenApiHttpClient quo = serviceProvider
 
 HttpClient client = await quo.Get(cancellationToken);
 HttpResponseMessage response = await client.GetAsync(
-    "users",
+    "v1/users",
     cancellationToken);
 response.EnsureSuccessStatusCode();
 ```

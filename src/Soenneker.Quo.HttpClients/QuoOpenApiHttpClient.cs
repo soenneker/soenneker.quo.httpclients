@@ -17,7 +17,7 @@ public sealed class QuoOpenApiHttpClient : IQuoOpenApiHttpClient
     private readonly IConfiguration _config;
     private readonly string _cacheKey = $"{nameof(QuoOpenApiHttpClient)}:{Guid.NewGuid():N}";
 
-    private const string _prodBaseUrl = "https://api.openphone.com/v1/";
+    private const string _prodBaseUrl = "https://api.openphone.com/";
 
     public QuoOpenApiHttpClient(IHttpClientCache httpClientCache, IConfiguration config)
     {
