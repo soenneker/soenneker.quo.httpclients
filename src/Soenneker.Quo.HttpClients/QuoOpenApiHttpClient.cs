@@ -11,6 +11,7 @@ using Soenneker.Utils.HttpClientCache.Abstract;
 
 namespace Soenneker.Quo.HttpClients;
 
+/// <inheritdoc cref="IQuoOpenApiHttpClient" />
 public sealed class QuoOpenApiHttpClient : IQuoOpenApiHttpClient
 {
     private readonly IHttpClientCache _httpClientCache;
