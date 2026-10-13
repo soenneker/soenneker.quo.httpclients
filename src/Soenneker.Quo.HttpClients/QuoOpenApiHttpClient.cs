@@ -30,7 +30,7 @@ public sealed class QuoOpenApiHttpClient : IQuoOpenApiHttpClient
     {
         return _httpClientCache.Get(_cacheKey, (config: _config, baseUrl: _config["Quo:ClientBaseUrl"] ?? _prodBaseUrl), static state =>
         {
-            var apiKey = state.config.GetValueStrict<string>("Quo:ApiKey");
+            var apiKey = state.config.GetStringStrict("Quo:ApiKey");
 
             return new HttpClientOptions
             {
